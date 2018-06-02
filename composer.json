@@ -1,0 +1,26 @@
+{
+    "name": "drivezy/laravel-admin",
+    "description": "Api resources for laravel admin",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hemant Kumar Sah",
+            "email": "hemantanshu@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Drivezy\\LaravelAdmin\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Drivezy\\LaravelAdmin\\LaravelAdminServiceProvider"
+            ]
+        }
+    }
+}
