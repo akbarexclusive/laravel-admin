@@ -19,7 +19,7 @@ class MenuManager {
     public static function getMenuDetails ($id) {
         $menu = Menu::find($id);
 
-        $menu->layouts = PreferenceManager::getListPreference(Menu::class, $id);
+        $menu->list_layouts = PreferenceManager::getListPreference(Menu::class, $id);
 
         return Response::json(['success' => true, 'response' => $menu]);
     }
