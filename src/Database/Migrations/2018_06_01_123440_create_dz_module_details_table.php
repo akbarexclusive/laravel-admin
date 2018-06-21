@@ -1,5 +1,6 @@
 <?php
 
+use Drivezy\LaravelUtility\LaravelUtility;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -12,7 +13,7 @@ class CreateDzModuleDetailsTable extends Migration {
      */
     public function up () {
         Schema::create('dz_module_details', function (Blueprint $table) {
-            $userTable = config('utility.user_table');
+            $userTable = LaravelUtility::getUserTable();
             
             $table->increments('id');
 
