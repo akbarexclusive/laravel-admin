@@ -1,5 +1,6 @@
 <?php
 
+use Drivezy\LaravelAdmin\Database\Seeds\ParentMenuSeeder;
 use Drivezy\LaravelUtility\LaravelUtility;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -32,6 +33,8 @@ class AddDzParentMenusTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
+
+        ( new ParentMenuSeeder() )->run();
     }
 
     /**

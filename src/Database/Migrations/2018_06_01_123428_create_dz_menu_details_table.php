@@ -1,5 +1,6 @@
 <?php
 
+use Drivezy\LaravelAdmin\Database\Seeds\MenuSeeder;
 use Drivezy\LaravelUtility\LaravelUtility;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -30,8 +31,13 @@ class CreateDzMenuDetailsTable extends Migration {
             $table->string('restricted_column')->nullable();
             $table->string('documentation_url')->nullable();
 
+            $table->unsignedInteger('page_id')->nullable();
+            $table->string('order_definition')->nullable();
+
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+
+            $table->foreign('page_id')->references('id')->on('dz_page_definitions');
 
             $table->foreign('created_by')->references('id')->on($userTable);
             $table->foreign('updated_by')->references('id')->on($userTable);
@@ -39,6 +45,8 @@ class CreateDzMenuDetailsTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
+
+        (new MenuSeeder())->run();
     }
 
     /**
