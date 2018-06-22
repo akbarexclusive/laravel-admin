@@ -1,5 +1,6 @@
 <?php
 
+use Drivezy\LaravelAdmin\Database\Seeds\ModuleMenuSeeder;
 use Drivezy\LaravelUtility\LaravelUtility;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -34,6 +35,8 @@ class CreateDzModuleMenusTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
+
+        ( new ModuleMenuSeeder() )->run();
     }
 
     /**

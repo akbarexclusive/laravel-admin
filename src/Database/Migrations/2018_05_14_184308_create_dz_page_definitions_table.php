@@ -1,5 +1,6 @@
 <?php
 
+use Drivezy\LaravelAdmin\Database\Seeds\PageSeeder;
 use Drivezy\LaravelUtility\LaravelUtility;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -31,6 +32,8 @@ class CreateDzPageDefinitionsTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
+
+        ( new PageSeeder() )->run();
     }
 
     /**
