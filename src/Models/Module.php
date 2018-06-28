@@ -14,6 +14,7 @@ class Module extends BaseModel {
      * @var string
      */
     protected $table = 'dz_module_details';
+    protected $hidden = ['created_by', 'updated_by', 'created_at', 'updated_at', 'deleted_at'];
     /**
      * @var array
      */

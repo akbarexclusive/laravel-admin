@@ -16,6 +16,7 @@ class Menu extends BaseModel {
      * @var string
      */
     protected $table = 'dz_menu_details';
+    protected $hidden = ['created_by', 'updated_by', 'created_at', 'updated_at', 'deleted_at'];
     /**
      * @var array
      */

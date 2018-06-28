@@ -8,6 +8,7 @@ use Drivezy\LaravelAdmin\Models\Module;
 use Drivezy\LaravelAdmin\Models\ModuleMenu;
 use Drivezy\LaravelAdmin\Models\PageDefinition;
 use Drivezy\LaravelRecordManager\Library\PreferenceManager;
+use Drivezy\LaravelRecordManager\Library\UIActionManager;
 use Illuminate\Support\Facades\Response;
 
 /**
@@ -24,6 +25,7 @@ class MenuManager {
     public static function getMenuDetails ($id) {
         $menu = Menu::find($id);
         $menu->list_layouts = PreferenceManager::getListPreference(Menu::class, $id);
+        $menu->ui_actions = UIActionManager::getObjectUIActions(Menu::class, $id);
 
         return Response::json(['success' => true, 'response' => $menu]);
     }
