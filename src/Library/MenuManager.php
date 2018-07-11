@@ -46,7 +46,9 @@ class MenuManager {
         $modules['modules'] = [];
 
         foreach ( $records as $record ) {
-            $associations = ModuleMenu::with(['menu.roles', 'menu.permissions', 'menu.child_menus'])->get();
+            $associations = ModuleMenu::with(['menu.roles', 'menu.permissions', 'menu.child_menus'])
+                ->where('module_id', $record->id)->get();
+
             $menus = [];
             foreach ( $associations as $menu ) {
                 $menu = $menu->menu;

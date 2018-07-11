@@ -49,6 +49,7 @@ class MenuSeeder {
                 'route'            => 'api/record/module',
                 'page_id'          => 2,
                 'order_definition' => '',
+                'visibile'         => false,
             ],
             [
                 'id'               => 5,
@@ -58,6 +59,7 @@ class MenuSeeder {
                 'route'            => 'api/record/menu',
                 'page_id'          => 2,
                 'order_definition' => '',
+                'visibile'         => false,
             ],
             [
                 'id'               => 6,
@@ -67,6 +69,7 @@ class MenuSeeder {
                 'route'            => '',
                 'page_id'          => 2,
                 'order_definition' => '',
+                'visibile'         => false,
             ],
 
         ];
