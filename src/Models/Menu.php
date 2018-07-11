@@ -5,6 +5,7 @@ namespace Drivezy\LaravelAdmin\Models;
 use Drivezy\LaravelAccessManager\Models\PermissionAssignment;
 use Drivezy\LaravelAccessManager\Models\RoleAssignment;
 use Drivezy\LaravelAdmin\Observers\MenuObserver;
+use Drivezy\LaravelRecordManager\Models\UIAction;
 use Drivezy\LaravelUtility\Models\BaseModel;
 
 /**
@@ -62,6 +63,13 @@ class Menu extends BaseModel {
      */
     public function page () {
         return $this->belongsTo(PageDefinition::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ui_actions () {
+        return $this->hasMany(UIAction::class, 'source_id')->where('source_type', self::class);
     }
 
     /**
