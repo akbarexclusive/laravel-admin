@@ -11,4 +11,10 @@ Route::group(['namespace' => 'Drivezy\LaravelAdmin\Controllers',
 
     Route::get('menuDetails/{id}', 'MenuController@getMenuDetails');
     Route::get('menus', 'MenuController@getMenus');
+
+    Route::resource('clientScript', 'ClientScriptController');
+    Route::resource('uiAction', 'UIActionController');
+
+    Route::resource('customForm', 'CustomFormController');
+    Route::get('formDetails/{id}', 'CustomFormController@getFormDetails');
 });
