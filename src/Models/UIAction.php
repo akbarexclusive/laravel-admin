@@ -1,0 +1,48 @@
+<?php
+
+namespace Drivezy\LaravelAdmin\Models;
+
+use Drivezy\LaravelAdmin\Observers\UIActionObserver;
+use Drivezy\LaravelRecordManager\Models\SystemScript;
+use Drivezy\LaravelUtility\Models\BaseModel;
+
+/**
+ * Class UIAction
+ * @package Drivezy\LaravelRecordManager\Models
+ */
+class UIAction extends BaseModel {
+    /**
+     * @var string
+     */
+    protected $table = 'dz_ui_actions';
+    protected $hidden = ['created_by', 'updated_by', 'created_at', 'updated_at', 'deleted_at', 'source_type', 'source_id'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function filter_condition () {
+        return $this->belongsTo(SystemScript::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function execution_script () {
+        return $this->belongsTo(SystemScript::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function form () {
+        return $this->belongsTo(CustomForm::class);
+    }
+
+    /**
+     * Override the boot functionality to add up the observer
+     */
+    public static function boot () {
+        parent::boot();
+        self::observe(new UIActionObserver());
+    }
+}
