@@ -5,6 +5,7 @@ namespace Drivezy\LaravelAdmin\Models;
 use Drivezy\LaravelAccessManager\Models\PermissionAssignment;
 use Drivezy\LaravelAccessManager\Models\RoleAssignment;
 use Drivezy\LaravelAdmin\Observers\MenuObserver;
+use Drivezy\LaravelRecordManager\Models\ClientScript;
 use Drivezy\LaravelRecordManager\Models\UIAction;
 use Drivezy\LaravelUtility\Models\BaseModel;
 
@@ -48,14 +49,14 @@ class Menu extends BaseModel {
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function roles () {
-        return $this->hasMany(RoleAssignment::class, 'source_id')->where('source_type', self::class);
+        return $this->hasMany(RoleAssignment::class, 'source_id')->where('source_type', md5(self::class));
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function permissions () {
-        return $this->hasMany(PermissionAssignment::class, 'source_id')->where('source_type', self::class);
+        return $this->hasMany(PermissionAssignment::class, 'source_id')->where('source_type', md5(self::class));
     }
 
     /**
@@ -69,7 +70,14 @@ class Menu extends BaseModel {
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function ui_actions () {
-        return $this->hasMany(UIAction::class, 'source_id')->where('source_type', self::class);
+        return $this->hasMany(UIAction::class, 'source_id')->where('source_type', md5(self::class));
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function client_scripts () {
+        return $this->hasMany(ClientScript::class, 'source_id')->where('source_type', md5(self::class));
     }
 
     /**
