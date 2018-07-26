@@ -19,6 +19,7 @@ class CreateDzModuleDetailsTable extends Migration {
             $table->increments('id');
 
             $table->string('name');
+            $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->integer('display_order');
 

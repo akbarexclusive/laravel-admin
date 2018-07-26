@@ -24,8 +24,8 @@ class MenuManager {
      */
     public static function getMenuDetails ($id) {
         $menu = Menu::find($id);
-        $menu->list_layouts = PreferenceManager::getListPreference(Menu::class, $id);
-        $menu->ui_actions = UIActionManager::getObjectUIActions(Menu::class, $id);
+        $menu->list_layouts = PreferenceManager::getListPreference(md5(Menu::class), $id);
+        $menu->ui_actions = UIActionManager::getObjectUIActions(md5(Menu::class), $id);
 
         return Response::json(['success' => true, 'response' => $menu]);
     }
