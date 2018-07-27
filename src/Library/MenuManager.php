@@ -8,7 +8,6 @@ use Drivezy\LaravelAdmin\Models\Module;
 use Drivezy\LaravelAdmin\Models\ModuleMenu;
 use Drivezy\LaravelAdmin\Models\PageDefinition;
 use Drivezy\LaravelRecordManager\Library\PreferenceManager;
-use Drivezy\LaravelRecordManager\Library\UIActionManager;
 use Illuminate\Support\Facades\Response;
 
 /**
