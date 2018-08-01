@@ -2,9 +2,12 @@
 
 namespace Drivezy\LaravelAdmin\Controllers;
 
+use Drivezy\LaravelAdmin\Library\ClientScriptManager;
 use Drivezy\LaravelAdmin\Library\FormManager;
 use Drivezy\LaravelAdmin\Models\CustomForm;
 use Drivezy\LaravelRecordManager\Controllers\RecordController;
+use Drivezy\LaravelRecordManager\Library\PreferenceManager;
+use Illuminate\Http\Request;
 
 class CustomFormController extends RecordController {
     /**
@@ -34,7 +37,7 @@ class CustomFormController extends RecordController {
             ],
             'form_layouts'   => PreferenceManager::getFormPreference(md5(CustomForm::class), $id),
             'form'           => $form,
-            'client_scripts' => ClientScriptManager::getClientScripts($form->identifier),
+            'client_scripts' => ClientScriptManager::getClientScripts('form_' . $form->id),
         ]);
 
     }
