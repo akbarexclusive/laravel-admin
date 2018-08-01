@@ -37,7 +37,7 @@ class CustomFormController extends RecordController {
             ],
             'form_layouts'   => PreferenceManager::getFormPreference(md5(CustomForm::class), $id),
             'form'           => $form,
-            'client_scripts' => ClientScriptManager::getClientScripts($form->identifier),
+            'client_scripts' => ClientScriptManager::getClientScripts('form_' . $form->id),
         ]);
 
     }
