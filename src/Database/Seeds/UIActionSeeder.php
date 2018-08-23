@@ -2,6 +2,8 @@
 
 namespace Drivezy\LaravelAdmin\Database\Seeds;
 
+use Drivezy\LaravelAdmin\Models\UIAction;
+
 class UIActionSeeder {
     /**
      *
@@ -73,7 +75,6 @@ class UIActionSeeder {
         foreach ( $records as $record ) {
             $record['source_type'] = md5(DataModel::class);
             $record['source_id'] = 0;
-
             UIAction::create($record);
         }
     }

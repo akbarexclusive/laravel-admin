@@ -10,7 +10,10 @@ class ClientScriptManager {
      * @return array
      */
     public static function getClientScripts ($identifier) {
-        $scripts = ClientScript::with('script')->where('name', 'LIKE', '' . $identifier . '%')->get();
+        $scripts = ClientScript::with('script')
+            ->where('name', '' . $identifier . '')
+            ->orWhere('name', 'LIKE', '' . $identifier . '.%')
+            ->get();
 
         $records = [];
         foreach ( $scripts as $script ) {
