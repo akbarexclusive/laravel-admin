@@ -32,6 +32,6 @@ class MenuController extends RecordController {
      * @return mixed
      */
     public function getMenus (Request $request) {
-        return Response::json(['success' => true, 'response' => MenuManager::getMenus()]);
+        return success_response(MenuManager::getMenus());
     }
 }
