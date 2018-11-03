@@ -107,7 +107,7 @@ class MenuManager {
         if ( AccessManager::hasPermission($permissions) ) return true;
 
         //if there are no roles or permissions in the array return true
-        if ( !( sizeof($roles) || sizeof($permissions) ) ) return true;
+        if ( empty($roles) && empty($permissions) ) return true;
 
         //user doesnt have access to the object
         return false;
