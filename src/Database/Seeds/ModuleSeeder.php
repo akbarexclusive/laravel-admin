@@ -3,12 +3,13 @@
 namespace Drivezy\LaravelAdmin\Database\Seeds;
 
 use Drivezy\LaravelAdmin\Models\Module;
+use Drivezy\LaravelUtility\src\Database\Seeds\BaseSeeder;
 
 /**
  * Class ModuleSeeder
  * @package Drivezy\LaravelAdmin\Database\Seeds
  */
-class ModuleSeeder {
+class ModuleSeeder extends BaseSeeder {
     /**
      *
      */

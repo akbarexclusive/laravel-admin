@@ -4,8 +4,13 @@ namespace Drivezy\LaravelAdmin\Database\Seeds;
 
 use Drivezy\LaravelUtility\Models\LookupType;
 use Drivezy\LaravelUtility\Models\LookupValue;
+use Drivezy\LaravelUtility\src\Database\Seeds\BaseSeeder;
 
-class FormMethodSeeder {
+/**
+ * Class FormMethodSeeder
+ * @package Drivezy\LaravelAdmin\Database\Seeds
+ */
+class FormMethodSeeder extends BaseSeeder {
     /**
      * Run the database seeds.
      *

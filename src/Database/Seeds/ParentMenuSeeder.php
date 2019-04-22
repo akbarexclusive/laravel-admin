@@ -3,9 +3,17 @@
 namespace Drivezy\LaravelAdmin\Database\Seeds;
 
 use Drivezy\LaravelAdmin\Models\ParentMenu;
+use Drivezy\LaravelUtility\src\Database\Seeds\BaseSeeder;
 
-class ParentMenuSeeder {
+/**
+ * Class ParentMenuSeeder
+ * @package Drivezy\LaravelAdmin\Database\Seeds
+ */
+class ParentMenuSeeder extends BaseSeeder {
 
+    /**
+     *
+     */
     public function run () {
         $records = [
             [
