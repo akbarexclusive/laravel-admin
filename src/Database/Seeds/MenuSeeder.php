@@ -3,12 +3,13 @@
 namespace Drivezy\LaravelAdmin\Database\Seeds;
 
 use Drivezy\LaravelAdmin\Models\Menu;
+use Drivezy\LaravelUtility\src\Database\Seeds\BaseSeeder;
 
 /**
  * Class MenuSeeder
  * @package Drivezy\LaravelAdmin\Database\Seeds
  */
-class MenuSeeder {
+class MenuSeeder extends BaseSeeder {
     /**
      *
      */

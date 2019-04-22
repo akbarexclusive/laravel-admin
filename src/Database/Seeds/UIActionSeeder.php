@@ -3,8 +3,13 @@
 namespace Drivezy\LaravelAdmin\Database\Seeds;
 
 use Drivezy\LaravelAdmin\Models\UIAction;
+use Drivezy\LaravelUtility\src\Database\Seeds\BaseSeeder;
 
-class UIActionSeeder {
+/**
+ * Class UIActionSeeder
+ * @package Drivezy\LaravelAdmin\Database\Seeds
+ */
+class UIActionSeeder extends BaseSeeder {
     /**
      *
      */
