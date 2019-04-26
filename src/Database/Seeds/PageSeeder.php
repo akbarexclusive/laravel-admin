@@ -3,7 +3,7 @@
 namespace Drivezy\LaravelAdmin\Database\Seeds;
 
 use Drivezy\LaravelAdmin\Models\PageDefinition;
-use Drivezy\LaravelUtility\src\Database\Seeds\BaseSeeder;
+use Drivezy\LaravelUtility\Database\Seeds\BaseSeeder;
 
 /**
  * Class PageSeeder
