@@ -19,13 +19,13 @@ class PageSeeder extends BaseSeeder {
                 'id'          => 1,
                 'name'        => 'generic-list',
                 'description' => 'Generic listing page',
-                'path'        => '/Generic-Listing/genericListing.scene',
+                'path'        => 'Generic-Listing/genericListing.scene',
             ],
             [
                 'id'          => 2,
                 'name'        => 'generic-detail',
                 'description' => 'Generic detail page',
-                'path'        => '/Generic-Detail/genericDetail.scene',
+                'path'        => 'Generic-Detail/genericDetail.scene',
             ],
         ];
         foreach ( $records as $record )
