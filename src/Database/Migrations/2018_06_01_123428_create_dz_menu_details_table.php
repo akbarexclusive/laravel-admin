@@ -22,7 +22,7 @@ class CreateDzMenuDetailsTable extends Migration {
             $table->string('url');
 
             $table->string('image')->nullable();
-            $table->string('includes')->nullable();
+            $table->text('includes')->nullable();
             $table->string('route')->nullable();
 
             $table->boolean('visible')->default(true);
