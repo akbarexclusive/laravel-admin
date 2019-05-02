@@ -15,7 +15,7 @@ class LaravelAdminServiceProvider extends ServiceProvider {
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
 
         //load migrations as part of this package
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
     }
 
     /**

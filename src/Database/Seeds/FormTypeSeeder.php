@@ -2,9 +2,9 @@
 
 namespace Drivezy\LaravelAdmin\Database\Seeds;
 
-use Drivezy\LaravelUtility\Database\Seeds\BaseSeeder;
 use Drivezy\LaravelUtility\Models\LookupType;
 use Drivezy\LaravelUtility\Models\LookupValue;
+use Drivezy\LaravelUtility\Database\Seeds\BaseSeeder;
 
 /**
  * Class FormTypeSeeder
