@@ -13,7 +13,7 @@ class AddDzCustomFormsFormTypeIdTable extends Migration {
      */
     public function up () {
         Schema::table('dz_custom_forms', function (Blueprint $table) {
-            $table->unsignedInteger('form_type_id')->nullable();
+            $table->unsignedBigInteger('form_type_id')->nullable();
             $table->foreign('form_type_id')->references('id')->on('dz_lookup_values');
         });
 
