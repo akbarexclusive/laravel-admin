@@ -16,15 +16,15 @@ class CreateDzModuleMenusTable extends Migration {
         Schema::create('dz_module_menus', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->increments('id');
+            $table->bigIncrements('id');
 
-            $table->unsignedInteger('module_id')->nullable();
-            $table->unsignedInteger('menu_id')->nullable();
+            $table->unsignedBigInteger('module_id')->nullable();
+            $table->unsignedBigInteger('menu_id')->nullable();
 
             $table->integer('display_order')->default(0);
 
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
 
             $table->foreign('module_id')->references('id')->on('dz_module_details');
             $table->foreign('menu_id')->references('id')->on('dz_menu_details');
