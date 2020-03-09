@@ -16,13 +16,13 @@ class AddDzParentMenusTable extends Migration {
         Schema::create('dz_parent_menus', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->bigIncrements('id');
+            $table->increments('id');
 
-            $table->unsignedBigInteger('menu_id')->nullable();
-            $table->unsignedBigInteger('parent_menu_id')->nullable();
+            $table->unsignedInteger('menu_id')->nullable();
+            $table->unsignedInteger('parent_menu_id')->nullable();
 
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
 
             $table->foreign('menu_id')->references('id')->on('dz_menu_details');
             $table->foreign('parent_menu_id')->references('id')->on('dz_menu_details');

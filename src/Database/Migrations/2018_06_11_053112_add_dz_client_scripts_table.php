@@ -16,21 +16,21 @@ class AddDzClientScriptsTable extends Migration {
         Schema::create('dz_client_scripts', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->bigIncrements('id');
+            $table->increments('id');
 
             $table->string('name');
             $table->string('description')->nullable();
 
             $table->string('source_type')->nullable();
-            $table->unsignedBigInteger('source_id')->nullable();
+            $table->unsignedInteger('source_id')->nullable();
 
-            $table->unsignedBigInteger('activity_type_id')->nullable();
+            $table->unsignedInteger('activity_type_id')->nullable();
 
-            $table->unsignedBigInteger('script_id')->nullable();
+            $table->unsignedInteger('script_id')->nullable();
             $table->boolean('active')->default(true);
 
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
 
             $table->foreign('activity_type_id')->references('id')->on('dz_lookup_values');
             $table->foreign('script_id')->references('id')->on('dz_system_scripts');

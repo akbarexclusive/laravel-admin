@@ -16,7 +16,7 @@ class CreateDzMenuDetailsTable extends Migration {
         Schema::create('dz_menu_details', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->bigIncrements('id');
+            $table->increments('id');
 
             $table->string('name');
             $table->string('url');
@@ -31,11 +31,11 @@ class CreateDzMenuDetailsTable extends Migration {
             $table->string('restricted_column')->nullable();
             $table->string('documentation_url')->nullable();
 
-            $table->unsignedBigInteger('page_id')->nullable();
+            $table->unsignedInteger('page_id')->nullable();
             $table->string('order_definition')->nullable();
 
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
 
             $table->foreign('page_id')->references('id')->on('dz_page_definitions');
 
