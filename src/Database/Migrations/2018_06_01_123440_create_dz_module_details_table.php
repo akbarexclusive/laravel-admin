@@ -6,25 +6,27 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDzModuleDetailsTable extends Migration {
+class CreateDzModuleDetailsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up () {
+    public function up ()
+    {
         Schema::create('dz_module_details', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->bigIncrements('id');
+            $table->increments('id');
 
             $table->string('name');
             $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->integer('display_order');
 
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
 
             $table->foreign('created_by')->references('id')->on($userTable);
             $table->foreign('updated_by')->references('id')->on($userTable);
@@ -41,7 +43,8 @@ class CreateDzModuleDetailsTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         Schema::dropIfExists('dz_module_details');
     }
 }

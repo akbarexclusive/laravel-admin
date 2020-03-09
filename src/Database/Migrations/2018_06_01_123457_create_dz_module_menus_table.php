@@ -2,29 +2,31 @@
 
 use Drivezy\LaravelAdmin\Database\Seeds\ModuleMenuSeeder;
 use Drivezy\LaravelUtility\LaravelUtility;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateDzModuleMenusTable extends Migration {
+class CreateDzModuleMenusTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up () {
+    public function up ()
+    {
         Schema::create('dz_module_menus', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->bigIncrements('id');
+            $table->increments('id');
 
-            $table->unsignedBigInteger('module_id')->nullable();
-            $table->unsignedBigInteger('menu_id')->nullable();
+            $table->unsignedInteger('module_id')->nullable();
+            $table->unsignedInteger('menu_id')->nullable();
 
             $table->integer('display_order')->default(0);
 
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
 
             $table->foreign('module_id')->references('id')->on('dz_module_details');
             $table->foreign('menu_id')->references('id')->on('dz_menu_details');
@@ -44,7 +46,8 @@ class CreateDzModuleMenusTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         Schema::dropIfExists('dz_module_menus');
     }
 }

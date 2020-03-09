@@ -6,17 +6,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDzUiActionsTable extends Migration {
+class CreateDzUiActionsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up () {
+    public function up ()
+    {
         Schema::create('dz_ui_actions', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->bigIncrements('id');
+            $table->increments('id');
 
             $table->string('name');
             $table->string('identifier')->nullable();
@@ -24,7 +26,7 @@ class CreateDzUiActionsTable extends Migration {
             $table->string('description')->nullable();
 
             $table->string('source_type')->nullable();
-            $table->unsignedBigInteger('source_id')->nullable();
+            $table->unsignedInteger('source_id')->nullable();
 
             $table->integer('display_order')->default(0);
             $table->string('image')->nullable();
@@ -37,12 +39,12 @@ class CreateDzUiActionsTable extends Migration {
 
             $table->boolean('active')->default(true);
 
-            $table->unsignedBigInteger('form_id')->nullable();
-            $table->unsignedBigInteger('filter_condition_id')->nullable();
-            $table->unsignedBigInteger('execution_script_id')->nullable();
+            $table->unsignedInteger('form_id')->nullable();
+            $table->unsignedInteger('filter_condition_id')->nullable();
+            $table->unsignedInteger('execution_script_id')->nullable();
 
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
 
             $table->foreign('form_id')->references('id')->on('dz_custom_forms');
             $table->foreign('filter_condition_id')->references('id')->on('dz_system_scripts');
@@ -65,7 +67,8 @@ class CreateDzUiActionsTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         ( new UIActionSeeder() )->drop();
 
         Schema::dropIfExists('dz_ui_actions');

@@ -2,21 +2,23 @@
 
 use Drivezy\LaravelAdmin\Database\Seeds\MenuSeeder;
 use Drivezy\LaravelUtility\LaravelUtility;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateDzMenuDetailsTable extends Migration {
+class CreateDzMenuDetailsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up () {
+    public function up ()
+    {
         Schema::create('dz_menu_details', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->bigIncrements('id');
+            $table->increments('id');
 
             $table->string('name');
             $table->string('url');
@@ -31,11 +33,11 @@ class CreateDzMenuDetailsTable extends Migration {
             $table->string('restricted_column')->nullable();
             $table->string('documentation_url')->nullable();
 
-            $table->unsignedBigInteger('page_id')->nullable();
+            $table->unsignedInteger('page_id')->nullable();
             $table->string('order_definition')->nullable();
 
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
 
             $table->foreign('page_id')->references('id')->on('dz_page_definitions');
 
@@ -46,7 +48,7 @@ class CreateDzMenuDetailsTable extends Migration {
             $table->softDeletes();
         });
 
-        (new MenuSeeder())->run();
+        ( new MenuSeeder() )->run();
     }
 
     /**
@@ -54,7 +56,8 @@ class CreateDzMenuDetailsTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         Schema::dropIfExists('dz_menu_details');
     }
 }
